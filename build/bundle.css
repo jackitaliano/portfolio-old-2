@@ -1,0 +1,10 @@
+.bg-img-container.svelte-x56ndr{z-index:-3;position:absolute;width:100%;height:100%;padding:0;margin:0}.bg-img.svelte-x56ndr{z-index:-2;position:fixed;left:0;top:0;width:100%;height:100%;filter:blur(20px)}.bg-filter.svelte-x56ndr{z-index:-1;position:fixed;left:0;top:0;width:100%;height:100%;margin:0;padding:0;border:none;background-color:rgba(0,0,0,0.7)}
+nav.svelte-1himl4f{background-image:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.7),rgba(0,0,0,0.4),rgba(0,0,0,0));position:fixed;top:0;left:0;color:white;padding-top:2em;width:100%;height:10em}.nav-item.svelte-1himl4f{padding:1em;height:3em;line-height:1em;text-align:center;padding-inline:3em;border-radius:2em;transition:background-color 0.5s ease, box-shadow 0.5s ease}.nav-item.svelte-1himl4f:focus-visible,.nav-item.svelte-1himl4f:focus,.nav-item.svelte-1himl4f:hover{background-color:black;box-shadow:0 0 20px rgba(255,255,255,0.5);border:none;outline:none}
+.section.svelte-1bruljk{height:calc(100%);padding-top:15em}
+h1.svelte-1l885ha{padding-bottom:1em;font-size:3em}
+p.svelte-1keslms{font-size:1em}
+ul.svelte-b5063g{padding-inline:2em;list-style-type:circle}.li.svelte-b5063g{padding:10em}
+.carousel-container.svelte-1qfeuv0{display:grid}.item.svelte-1qfeuv0{background-color:white;width:400px;height:400px;grid-column:2;grid-row:2}.arrow.svelte-1qfeuv0{height:100%;width:2em}.arrow-img.svelte-1qfeuv0{margin:auto;width:20px;height:20px}.left.svelte-1qfeuv0{grid-column:1;grid-row:2;border-radius:1em 0 0 1em}.right.svelte-1qfeuv0{grid-column:3;grid-row:2;border-radius:0 1em 1em 0}.arrow.svelte-1qfeuv0:focus-visible,.arrow.svelte-1qfeuv0:focus,.arrow.svelte-1qfeuv0:hover{box-shadow:0 0 20px rgba(255,255,255,0.5);border:none;outline:none}
+.content-container.svelte-1ewiau8{padding-inline:10em;color:white}
+.footbar.svelte-1ry9fk8{background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4),rgba(0,0,0,0.7),rgba(0,0,0,1));position:fixed;top:calc(100% - 10em);left:0;width:100%;height:10em}
+main.svelte-142mv5e{width:100%;height:100%}.background.svelte-142mv5e{z-index:0}.content.svelte-142mv5e{width:100%;height:100%;z-index:10}.footbar.svelte-142mv5e,.navbar.svelte-142mv5e{z-index:20}
