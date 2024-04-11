@@ -8,7 +8,14 @@
 
 <style>
 	.section {
-		height: calc(100%);
-		padding-top: 15em;
+		padding-top: 10em;
+		height: 50%;
 	}
+
+	@media only screen and (max-width: 768px) {
+		.section {
+			padding-top: 3em;
+		}
+	}
+
 </style>

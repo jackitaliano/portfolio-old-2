@@ -1,6 +1,7 @@
 <script>
 	import BackgroundImage from "./components/BackgroundImage.svelte";
 	import Navbar from "./components/Navbar.svelte";
+	import Navmenu from "./components/Navmenu.svelte";
 	import Content from "./components/Content.svelte";
 	import Footbar from "./components/Footbar.svelte";
 </script>
@@ -12,8 +13,13 @@
 	<div class="navbar">
 		<Navbar/>
 	</div>
-	<div class="content">
-		<Content/>
+	<div class="page flex flex-col">
+		<div class="navmenu">
+			<Navmenu/>
+		</div>
+		<div class="content">
+			<Content/>
+		</div>
 	</div>
 	<div class="footbar">
 		<Footbar/>
@@ -29,7 +35,7 @@
 		z-index: 0;
 	}
 
-	.content {
+	.page {
 		width: 100%;
 		height: 100%;
 		z-index: 10;
@@ -38,6 +44,22 @@
 	.footbar,
 	.navbar {
 		z-index: 20;
+	}
+
+	.navbar {
+		display: block;
+	}
+	.navmenu {
+		display: none;
+	}
+
+	@media only screen and (max-width: 768px) {
+		.navbar {
+			display: none;
+		}
+		.navmenu {
+			display: block;
+		}
 	}
 </style>
 

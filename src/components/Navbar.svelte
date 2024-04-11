@@ -1,15 +1,26 @@
 <script>
+	function handleLinkClick(event, id) {
+		console.log("click");
+		const element = document.getElementById(id);
+
+		element.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		})
+
+		event.target.blur();
+	}
 </script>
 
-<nav class="flex justify-around">
-	<a class="nav-item" tabindex="0" href="#aboutMe">About Me</a>
-	<a class="nav-item" tabindex="0" href="#experience">Experience</a>
-	<a class="nav-item" tabindex="0" href="#projects">Projects</a>
-	<a class="nav-item" tabindex="0" href="#contact">Contact Me</a>
+<nav class="navbar flex justify-around">
+	<button class="navbar-item" tabindex="0" on:click={(event) => handleLinkClick(event, "aboutMe")}>About Me</button>
+	<button class="navbar-item" tabindex="0" on:click={(event) => handleLinkClick(event, "experience")}>Experience</button>
+	<button class="navbar-item" tabindex="0" on:click={(event) => handleLinkClick(event, "projects")}>Projects</button>
+	<button class="navbar-item" tabindex="0" on:click={(event) => handleLinkClick(event, "contact")}>Contact Me</button>
 </nav>
 
 <style>
-	nav {
+	.navbar {
 		background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.7),rgba(0,0,0,0.4),rgba(0,0,0,0));
 		position: fixed;
 		top: 0;
@@ -22,7 +33,7 @@
 		height: 10em;
 	}
 
-	.nav-item {
+	.navbar-item {
 		padding: 1em;
 		height: 3em;
 		line-height: 1em;
@@ -32,9 +43,9 @@
 		transition: background-color 0.5s ease, box-shadow 0.5s ease;
 	}
 
-	.nav-item:focus-visible,
-	.nav-item:focus,
-	.nav-item:hover {
+	.navbar-item:focus-visible,
+	.navbar-item:focus,
+	.navbar-item:hover {
 		background-color: black;
 		box-shadow: 0 0 20px rgba(255,255,255,0.5);
 		border: none;

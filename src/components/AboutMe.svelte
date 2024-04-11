@@ -20,9 +20,6 @@
 			</li>
 		</List>
 	</div>
-	<div>
-		<Carousel/>
-	</div>
 </div>
 
 <style>
