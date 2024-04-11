@@ -89,8 +89,8 @@
 
 	.menu-button {
 		position: fixed;
-		top: 1em;
-		left: calc(100% - 3em);
+		top: calc(1em + env(safe-area-inset-top));
+		left: calc(100% - 3em - env(safe-area-inset-right));
 
 		z-index: 20;
 	}

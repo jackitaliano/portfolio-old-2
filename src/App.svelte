@@ -30,6 +30,8 @@
 	main {
 		width: 100%;
 		height: 100%;
+
+		padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 	}
 	.background {
 		z-index: 0;
@@ -46,7 +48,8 @@
 		z-index: 20;
 	}
 
-	.navbar {
+	.navbar,
+	.footbar {
 		display: block;
 	}
 	.navmenu {
@@ -54,7 +57,8 @@
 	}
 
 	@media only screen and (max-width: 768px) {
-		.navbar {
+		.navbar, 
+		.footbar {
 			display: none;
 		}
 		.navmenu {
