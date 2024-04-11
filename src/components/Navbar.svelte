@@ -1,6 +1,5 @@
 <script>
 	function handleLinkClick(event, id) {
-		console.log("click");
 		const element = document.getElementById(id);
 
 		element.scrollIntoView({

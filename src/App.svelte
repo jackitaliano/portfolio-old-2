@@ -13,13 +13,11 @@
 	<div class="navbar">
 		<Navbar/>
 	</div>
-	<div class="page flex flex-col">
-		<div class="navmenu">
-			<Navmenu/>
-		</div>
-		<div class="content">
-			<Content/>
-		</div>
+	<div class="navmenu">
+		<Navmenu/>
+	</div>
+	<div class="content">
+		<Content/>
 	</div>
 	<div class="footbar">
 		<Footbar/>
@@ -37,7 +35,7 @@
 		z-index: 0;
 	}
 
-	.page {
+	.content {
 		width: 100%;
 		height: 100%;
 		z-index: 10;

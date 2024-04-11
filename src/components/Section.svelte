@@ -9,12 +9,13 @@
 <style>
 	.section {
 		padding-top: 10em;
-		height: 50%;
+		height: 100%;
 	}
 
 	@media only screen and (max-width: 768px) {
 		.section {
 			padding-top: 3em;
+			padding-bottom: 10em;
 		}
 	}
 
