@@ -6,6 +6,8 @@
 		"project 2",
 		"project 3",
 		"project 4",
+		"project 5",
+		"project 6",
 	];
 
 	let currPos = 0;
@@ -21,13 +23,13 @@
 
 		currCard = projects[currPos];
 
-		if (currPos > 0) {
+		if (pos > 0) {
 			prevCard = projects[currPos - 1];
 		} else {
 			prevCard = null;
 		}
 
-		if (currPos < projects.length - 1) {
+		if (pos < projects.length - 1) {
 			nextCard = projects[currPos + 1];
 		} else {
 			nextCard = null;
@@ -51,34 +53,57 @@
 		currCardElement.style.height = "75%";
 	}
 
-	async function handleNext() {
+	async function handleNext(event) {
 		if (lock) {
 			return;
 		}
 
 		const newPos = currPos + 1;
 		if (newPos < projects.length) {
+			const button = event.currentTarget;
+			button.style.opacity = 0;
 			lock = true;
 			moveCurr("left");
 			moveCenter("nextCard");
+
+			if (newPos < projects.length - 1) {
+				setTimeout(()=>{
+					//button.style.visibility = "visible";
+					button.style.opacity = 1;
+					button.blur();
+				}, 450);
+			} else {
+				//button.style.visibility = "hidden";
+			}
 			setTimeout(()=> {
 				setCards(newPos);
 				lock = false;
-
 			}, 900);
 		}
 	}
 
-	async function handlePrev() {
+	async function handlePrev(event) {
 		if (lock) {
 			return;
 		}
 
 		const newPos = currPos - 1;
 		if (newPos >= 0) {
+			const button = event.currentTarget;
+			button.style.opacity = 0;
 			lock = true;
 			moveCurr("right");
 			moveCenter("prevCard");
+
+			if (newPos > 0) {
+				setTimeout(()=>{
+					//button.style.visibility = "visible";
+					button.style.opacity = 1;
+					button.blur();
+				}, 600);
+			} else {
+				//button.style.visibility = "hidden";
+			}
 			setTimeout(()=> {
 				setCards(newPos);
 				lock = false;
@@ -88,9 +113,8 @@
 	}
 </script>
 
-<div class="w-full h-full">
-	<button class="bg-red-400" on:click={handlePrev}>prev</button>
-	<button class="bg-red-400" on:click={handleNext}>next</button>
+<div class="flex justify-between items-center w-full h-full">
+	<button id="left-arrow" tabindex=0 class="arrow" on:click={handlePrev}><img class="arrow-img" src="static/images/caret-left.svg" alt="left"/></button>
 <div class="cards flex justify-between w-full h-full">
 	{#key currPos}
 	{#if prevCard}
@@ -114,11 +138,11 @@
 	{/if}
 	{/key}
 </div>
+<button id="right-arrow" tabindex=0 class="arrow" on:click={handleNext}><img class="arrow-img" src="static/images/caret-right.svg" alt="right"/></button>
 </div>
 
 <style>
 	.cards {
-		z-index: -1;
 		background-color: none;
 		position: relative;
 		width: 100%;
@@ -128,7 +152,7 @@
 	.card {
 		position: absolute;
 		background-color: none;
-		top: 0;
+		top: 12.5%;
 		left: 0;
 		width: 100%;
 		height: 75%;
@@ -153,5 +177,30 @@
 		width: 50%;
 		height: 37.5%;
 		opacity: 0;
+	}
+
+	.arrow {
+		width: 40px;
+		height: 50%;
+		outline: none;
+		background-color: none;
+		box-shadow: none;
+		border-radius: 2em;
+
+		opacity: 1;
+		transition: opacity 0.4s;
+	}
+	.arrow:focus-visible,
+	.arrow:focus,
+	.arrow:active {
+		outline: none;
+		background-color: none;
+	}
+
+	.arrow-img {
+		margin: auto;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
 	}
 </style>
