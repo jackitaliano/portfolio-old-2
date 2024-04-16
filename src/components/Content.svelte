@@ -4,11 +4,15 @@
 	import Experience from "./Experience.svelte";
 	import Projects from "./Projects.svelte";
 	import Contact from "./Contact.svelte";
+	import ProjectCards from "./ProjectCards.svelte";
 </script>
 
 <div class="content-container w-full h-full">
 	<Section id="aboutMe">
 		<AboutMe/>
+	</Section>
+	<Section>
+		<ProjectCards/>
 	</Section>
 	<Section id="experience">
 		<Experience/>
@@ -23,14 +27,6 @@
 
 <style>
 	.content-container {
-		padding-inline: 10em;
 		color: white;
 	}
-
-	@media only screen and (max-width: 768px) {
-		.content-container {
-			padding-inline: 2em;
-		}
-	}
-
 </style>
