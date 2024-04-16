@@ -36,11 +36,8 @@
 
 	function moveCurr(dir) {
 		const currCardElement = document.getElementById("currCard");
-		if (dir === "left") {
-			currCardElement.style.left = "-100%";
-		} else if (dir === "right") {
-			currCardElement.style.left = "150%";
-		}
+		currCardElement.style.left = "25%";
+		currCardElement.style.top = "25%";
 		currCardElement.style.opacity = "0";
 		currCardElement.style.width = "50%";
 		currCardElement.style.height = "37.5%";
@@ -64,9 +61,11 @@
 			lock = true;
 			moveCurr("left");
 			moveCenter("nextCard");
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-			setCards(newPos);
-			lock = false;
+			setTimeout(()=> {
+				setCards(newPos);
+				lock = false;
+
+			}, 900);
 		}
 	}
 
@@ -80,9 +79,11 @@
 			lock = true;
 			moveCurr("right");
 			moveCenter("prevCard");
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-			setCards(newPos);
-			lock = false;
+			setTimeout(()=> {
+				setCards(newPos);
+				lock = false;
+
+			}, 900);
 		}
 	}
 </script>
@@ -131,7 +132,7 @@
 		left: 0;
 		width: 100%;
 		height: 75%;
-		transition: left 1s, opacity 0.75s, width 0.75s, height 0.75s;
+		transition: left 0.9s, top 0.9s, opacity 0.7s, width 0.7s, height 0.7s;
 		margin: auto;
 	}
 

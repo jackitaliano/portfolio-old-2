@@ -16,7 +16,7 @@
 
 	@media only screen and (max-width: 768px) {
 		.section {
-			height: 150%;
+			height: 125%;
 			padding-inline: 2em;
 			padding-top: 3em;
 			padding-bottom: 10em;
