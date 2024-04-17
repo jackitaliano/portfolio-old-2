@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from "svelte";
 	import Card from "./Card.svelte";
 
 	let projects = [
@@ -16,7 +17,18 @@
 	let nextCard = null;
 	let lock = false;
 
-	setCards(0);
+	const prevButtonId = "prev-arrow";
+	const nextButtonId = "next-arrow";
+	let prevButtonElement;
+	let nextButtonElement;
+
+	onMount(() => {
+		prevButtonElement = document.getElementById(prevButtonId);
+		nextButtonElement = document.getElementById(nextButtonId);
+		console.log(prevButtonElement)
+		setCards(0);
+	})
+
 
 	function setCards(pos) {
 		currPos = pos;
@@ -25,14 +37,45 @@
 
 		if (pos > 0) {
 			prevCard = projects[currPos - 1];
+			prevButtonElement.style.opacity = 1;
 		} else {
 			prevCard = null;
+			prevButtonElement.style.opacity = 0;
 		}
 
 		if (pos < projects.length - 1) {
 			nextCard = projects[currPos + 1];
+			nextButtonElement.style.opacity = 1;
 		} else {
 			nextCard = null;
+			nextButtonElement.style.opacity = 0;
+		}
+	}
+
+	function setArrows(pos) {
+		const delay = 500;
+		if (pos > 0) {
+			prevButtonElement.style.visibility = "visible";
+			setTimeout(() => {
+				prevButtonElement.style.opacity = 1;
+			}, delay);
+		} else {
+			prevButtonElement.style.opacity = 0;
+			setTimeout(() => {
+				prevButtonElement.style.visibility = "hidden";
+			}, delay);
+		}
+
+		if (pos < projects.length - 1) {
+			nextButtonElement.style.visibility = "visible";
+			setTimeout(() => {
+				nextButtonElement.style.opacity = 1;
+			}, delay);
+		} else {
+			nextButtonElement.style.opacity = 0;
+			setTimeout(() => {
+				nextButtonElement.style.visibility = "hidden";
+			}, delay);
 		}
 	}
 
@@ -54,67 +97,54 @@
 	}
 
 	async function handleNext(event) {
-		if (lock) {
+		if (lock || !nextCard) {
 			return;
 		}
 
 		const newPos = currPos + 1;
-		if (newPos < projects.length) {
-			const button = event.currentTarget;
-			button.style.opacity = 0;
-			lock = true;
-			moveCurr("left");
-			moveCenter("nextCard");
 
-			if (newPos < projects.length - 1) {
-				setTimeout(()=>{
-					//button.style.visibility = "visible";
-					button.style.opacity = 1;
-					button.blur();
-				}, 450);
-			} else {
-				//button.style.visibility = "hidden";
-			}
-			setTimeout(()=> {
-				setCards(newPos);
-				lock = false;
-			}, 900);
-		}
+		nextButtonElement.style.opacity = 0;
+
+		lock = true;
+		moveCurr("left");
+		moveCenter("nextCard");
+
+		setArrows(newPos);
+
+		setTimeout(()=> {
+			setCards(newPos);
+			lock = false;
+		}, 900);
+
+		nextButtonElement.blur();
 	}
 
 	async function handlePrev(event) {
-		if (lock) {
+		if (lock || !prevCard) {
 			return;
 		}
 
 		const newPos = currPos - 1;
-		if (newPos >= 0) {
-			const button = event.currentTarget;
-			button.style.opacity = 0;
-			lock = true;
-			moveCurr("right");
-			moveCenter("prevCard");
 
-			if (newPos > 0) {
-				setTimeout(()=>{
-					//button.style.visibility = "visible";
-					button.style.opacity = 1;
-					button.blur();
-				}, 600);
-			} else {
-				//button.style.visibility = "hidden";
-			}
-			setTimeout(()=> {
-				setCards(newPos);
-				lock = false;
+		prevButtonElement.style.opacity = 0;
 
-			}, 900);
-		}
+		lock = true;
+		moveCurr("left");
+		moveCenter("prevCard");
+
+		setArrows(newPos);
+
+		setTimeout(()=> {
+			setCards(newPos);
+			lock = false;
+		}, 900);
+
+		prevButtonElement.blur();
 	}
 </script>
 
-<div class="flex justify-between items-center w-full h-full">
-	<button id="left-arrow" tabindex=0 class="arrow" on:click={handlePrev}><img class="arrow-img" src="static/images/caret-left.svg" alt="left"/></button>
+<div class="cards-container flex justify-between items-center w-full h-full">
+	<button id="prev-arrow" tabindex=0 class="arrow" on:click={handlePrev}><img class="arrow-img" src="static/images/caret-left.svg" alt="left"/></button>
 <div class="cards flex justify-between w-full h-full">
 	{#key currPos}
 	{#if prevCard}
@@ -138,15 +168,20 @@
 	{/if}
 	{/key}
 </div>
-<button id="right-arrow" tabindex=0 class="arrow" on:click={handleNext}><img class="arrow-img" src="static/images/caret-right.svg" alt="right"/></button>
+<button id="next-arrow" tabindex=0 class="arrow" on:click={handleNext}><img class="arrow-img" src="static/images/caret-right.svg" alt="right"/></button>
 </div>
 
 <style>
+	.cards-container {
+		z-index: -1;
+	}
+
 	.cards {
 		background-color: none;
 		position: relative;
 		width: 100%;
 		height: 100%;
+		z-index: -1;
 	}
 
 	.card {
@@ -193,7 +228,7 @@
 	.arrow:focus-visible,
 	.arrow:focus,
 	.arrow:active {
-		outline: none;
+		outline: -webkit-ring-color;
 		background-color: none;
 	}
 
