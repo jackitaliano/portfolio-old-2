@@ -1,5 +1,8 @@
 <script>
     import { onMount } from "svelte";
+	import { draggable } from 'svelte-agnostic-draggable'
+	import mapTouchToMouseFor from 'svelte-touch-to-mouse'
+
 	import Card from "./Card.svelte";
 
 	let projects = [
@@ -141,6 +144,41 @@
 
 		prevButtonElement.blur();
 	}
+
+	mapTouchToMouseFor('.draggable');
+
+	function onMouseDown () { 
+		console.log("mouse down");
+	}
+
+	function onDragStart (event) { 
+		console.log("drag start");
+	}
+
+	function onDrag(event) {
+		if (!touching ) return;
+
+		position = event.detail.position.left;
+		deltaX = (-1) * (position - initialLeft);
+
+		event.detail.position.top = 0;
+
+		if (deltaX >= slideThreshWidth) {
+			console.log("swipe right");
+
+		}  else if (deltaX <= -slideThreshWidth){
+			console.log("swip left");
+
+		} else {
+			console.log("return to middle");
+		}
+
+	}
+
+	async function onMouseUp () {
+	}
+
+
 </script>
 
 <div class="cards-container flex justify-between items-center w-full h-full">
@@ -148,14 +186,14 @@
 <div class="cards flex justify-between w-full h-full">
 	{#key currPos}
 	{#if prevCard}
-	<div id="prevCard" class="card prev">
-		<Card>
-			<h1>{ prevCard }</h1>
-		</Card>
-	</div>
+		<div id="prevCard" class="card prev">
+			<Card>
+				<h1>{ prevCard }</h1>
+			</Card>
+		</div>
 	{/if}
-	<div id="currCard" class="card curr">
-		<Card>
+	<div tabindex=-1 role="button" on:mousedown={onMouseDown} id="currCard" class="card curr draggable">
+		<Card classes="draggable">
 			<h1>{ currCard }</h1>
 		</Card>
 	</div>
@@ -237,5 +275,10 @@
 		width: 25px;
 		height: 25px;
 		border-radius: 50%;
+	}
+	.draggable {
+		-webkit-touch-callout:none;
+		-ms-touch-action:none; touch-action:none;
+		-moz-user-select:none; -webkit-user-select:none; -ms-user-select:none; user-select:none;
 	}
 </style>
