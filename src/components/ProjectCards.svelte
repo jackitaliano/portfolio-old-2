@@ -1,7 +1,5 @@
 <script>
-    import { onMount } from "svelte";
-	import { draggable } from 'svelte-agnostic-draggable'
-	import mapTouchToMouseFor from 'svelte-touch-to-mouse'
+	import { onMount } from "svelte";
 
 	import Card from "./Card.svelte";
 
@@ -20,16 +18,25 @@
 	let nextCard = null;
 	let lock = false;
 
+	let currCardElement;
+
 	const prevButtonId = "prev-arrow";
 	const nextButtonId = "next-arrow";
 	let prevButtonElement;
 	let nextButtonElement;
+
+	let currInitialTop;
+	let currInitialLeft;
 
 	onMount(() => {
 		prevButtonElement = document.getElementById(prevButtonId);
 		nextButtonElement = document.getElementById(nextButtonId);
 		console.log(prevButtonElement)
 		setCards(0);
+
+		currCardElement = document.getElementById("currCard");
+		currInitialTop = currCardElement.style.top;
+		currInitialLeft = currCardElement.style.left;
 	})
 
 
@@ -53,6 +60,7 @@
 			nextCard = null;
 			nextButtonElement.style.opacity = 0;
 		}
+
 	}
 
 	function setArrows(pos) {
@@ -145,73 +153,125 @@
 		prevButtonElement.blur();
 	}
 
-	mapTouchToMouseFor('.draggable');
+	let moving = false;
+	let left = 0;
 
-	function onMouseDown () { 
-		console.log("mouse down");
+	function onMouseDown(e) {
+		moving = true;
+		
+
+		currCardElement.style.transition = "none";
 	}
 
-	function onDragStart (event) { 
-		console.log("drag start");
-	}
-
-	function onDrag(event) {
-		if (!touching ) return;
-
-		position = event.detail.position.left;
-		deltaX = (-1) * (position - initialLeft);
-
-		event.detail.position.top = 0;
-
-		if (deltaX >= slideThreshWidth) {
-			console.log("swipe right");
-
-		}  else if (deltaX <= -slideThreshWidth){
-			console.log("swip left");
-
-		} else {
-			console.log("return to middle");
+	function onMouseMove(e) {
+		if (touching) {
+			if (e.totalY > 50 || e.totalY < -50) {
+				currCardElement.style.transition = "none";
+				console.log("move: ",e.movementY);
+				console.log("total: ",e.totalY);
+				window.scrollBy(0, -(e.movementY + e.totalY));
+				currCardElement.style.transition = "left 0.9s, top 0.9s, opacity 0.7s, width 0.7s, height 0.7s";
+			}
 		}
 
+		if (moving) {
+			left += e.movementX;
+
+			currCardElement.style.left = left + "px";
+		}
 	}
 
-	async function onMouseUp () {
+
+	function handleSwipe(left) {
+		const thresh = 100
+		if (left < -thresh) {
+			handleNext();
+
+		} else if (left > thresh) {
+			handlePrev();
+		}
 	}
 
+	function onMouseUp(e) {
+		moving = false;
+		touching = false;
+		handleSwipe(left);
+		left = 0;
+		currCardElement.style.left = "0";
+		currCardElement.style.transition = "left 0.9s, top 0.9s, opacity 0.7s, width 0.7s, height 0.7s";
+	}
 
+	function onMouseLeave(e) {
+		moving = false;
+		touching = false;
+		handleSwipe(left);
+		left = 0;
+		currCardElement.style.left = "0";
+		currCardElement.style.transition = "left 0.9s, top 0.9s, opacity 0.7s, width 0.7s, height 0.7s";
+	}
+
+	let prevTouch;
+	let firstTouch;
+	let touching = false;
+	function onTouchStart(e) {
+		firstTouch = e.touches[0];
+		prevTouch = firstTouch;
+		touching = true;
+		onMouseDown(e);
+	}
+
+	function onTouchMove(e) {
+		const newTouch = e.touches[0];
+		e.movementX = newTouch.pageX - prevTouch.pageX;
+		e.movementY = newTouch.pageY - prevTouch.pageY;
+		e.totalX = newTouch.pageX - firstTouch.pageX;
+		e.totalY = newTouch.pageY - firstTouch.pageY;
+
+		onMouseMove(e);
+
+		prevTouch = newTouch;
+	}
 </script>
 
 <div class="cards-container flex justify-between items-center w-full h-full">
 	<button id="prev-arrow" tabindex=0 class="arrow" on:click={handlePrev}><img class="arrow-img" src="static/images/caret-left.svg" alt="left"/></button>
-<div class="cards flex justify-between w-full h-full">
-	{#key currPos}
-	{#if prevCard}
-		<div id="prevCard" class="card prev">
-			<Card>
+	<div class="cards flex justify-between w-full h-full">
+		{#key currPos}
+		{#if prevCard}
+			<div id="prevCard" class="card prev">
+				<Card>
 				<h1>{ prevCard }</h1>
+				</Card>
+			</div>
+		{/if}
+		<div bind:this={currCardElement} id="currCard" class="card curr draggable" 
+			on:mousedown={onMouseDown}
+			on:mouseup={onMouseUp}
+			on:mousemove={onMouseMove}
+			on:mouseleave={onMouseLeave}
+			on:touchstart={onTouchStart}
+			on:touchmove={onTouchMove}
+			on:touchend={onMouseUp}
+			on:touchcancel={onMouseLeave}
+		 >
+			<Card>
+			<h1>{ currCard }</h1>
 			</Card>
 		</div>
-	{/if}
-	<div tabindex=-1 role="button" on:mousedown={onMouseDown} id="currCard" class="card curr draggable">
-		<Card classes="draggable">
-			<h1>{ currCard }</h1>
-		</Card>
+		{#if nextCard}
+			<div id="nextCard" class="card next">
+				<Card>
+				<h1>{ nextCard }</h1>
+				</Card>
+			</div>
+		{/if}
+		{/key}
 	</div>
-	{#if nextCard}
-	<div id="nextCard" class="card next">
-		<Card>
-			<h1>{ nextCard }</h1>
-		</Card>
-	</div>
-	{/if}
-	{/key}
-</div>
-<button id="next-arrow" tabindex=0 class="arrow" on:click={handleNext}><img class="arrow-img" src="static/images/caret-right.svg" alt="right"/></button>
+	<button id="next-arrow" tabindex=0 class="arrow" on:click={handleNext}><img class="arrow-img" src="static/images/caret-right.svg" alt="right"/></button>
 </div>
 
 <style>
 	.cards-container {
-		z-index: -1;
 	}
 
 	.cards {
@@ -219,7 +279,6 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
-		z-index: -1;
 	}
 
 	.card {
