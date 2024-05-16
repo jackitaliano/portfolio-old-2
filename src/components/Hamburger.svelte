@@ -7,27 +7,16 @@
 		handleClick();
 
 		rotated = !rotated;
-		handleRotate(rotated);
-	}
-
-	function handleRotate(isRotated) {
-		const img = document.getElementById("hamburger-img");
-
-		if (isRotated) {
-			img.style.transform = ("rotate(90deg)");
-		} else {
-			img.style.transform = ("none");
-		}
 	}
 </script>
 
 <button class="hamburger" on:click={handleClickHamburger}>
-	<img id="hamburger-img" class="hamburger-img" src="static/images/hamburg.svg" alt="menu button"/>
+	<img class="hamburger-img" class:rotated src="static/images/hamburg.svg" alt="menu button"/>
 </button>
 
 <style>
-	#hamburger-img {
-		transition: transform 0.4s ease;
+	.rotated {
+		transform: rotate(90deg);
 	}
 
 	.hamburger {
@@ -43,6 +32,7 @@
 	}
 
 	.hamburger-img {
+		transition: transform 0.4s ease;
 		margin: auto;
 		width: 1.5em;
 		height: 1.5em;
