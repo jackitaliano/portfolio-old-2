@@ -7,7 +7,7 @@
 
 <style>
 	h1 {
-		padding-bottom: 1em;
+		margin-bottom: 1em;
 		font-size: 3em;
 	}
 </style>

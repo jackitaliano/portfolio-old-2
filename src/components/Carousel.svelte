@@ -2,7 +2,7 @@
 	import { onMount } from "svelte";
 
 	export let swipeable = { mobile: true, desktop: false };
-	export let autoScroll = { duration: true, reverse: false };
+	export let autoScroll = { duration: 0, reverse: false };
 	export let animation = { slide: true, scale: false, fade: false };
 	export let lockDuration = 0;
 
@@ -304,10 +304,10 @@
 	:global(.item){
 		position: absolute;
 		background-color: none;
-		top: 12.5%;
+		top: 0;
 		left: 0;
 		width: 100%;
-		height: 75%;
+		height: 100%;
 		transition: left 0.9s, top 0.9s, opacity 0.7s, width 0.9s, height 0.9s, visibility 0.7s;
 		margin: auto;
 	}
@@ -316,7 +316,7 @@
 	:globabl(.item.curr) {
 		left: 0;
 		width: 100%;
-		height: 75%;
+		height: 100%;
 		opacity: 1;
 		visibility: visible;
 	}
@@ -330,7 +330,7 @@
 	.next-scale,
 	:global(.item.next-scale) {
 		width: 50%;
-		height: 37.5%;
+		height: 50%;
 		visibility: hidden;
 	}
 
@@ -349,7 +349,7 @@
 	.prev-scale,
 	:global(.item.prev-scale) {
 		width: 50%;
-		height: 37.5%;
+		height: 50%;
 		visibility: hidden;
 	}
 

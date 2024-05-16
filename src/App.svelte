@@ -3,7 +3,6 @@
 	import Navbar from "./components/Navbar.svelte";
 	import Navmenu from "./components/Navmenu.svelte";
 	import Content from "./components/Content.svelte";
-	import Footbar from "./components/Footbar.svelte";
 </script>
 
 <main>
@@ -18,9 +17,6 @@
 	</div>
 	<div class="content">
 		<Content/>
-	</div>
-	<div class="footbar">
-		<Footbar/>
 	</div>
 </main>
 
@@ -37,19 +33,16 @@
 
 	.content {
 		width: 100%;
-		height: 100%;
 		margin-inline: auto;
 		max-width: 1920px;
 		z-index: 10;
 	}
 
-	.footbar,
 	.navbar {
 		z-index: 100;
 	}
 
-	.navbar,
-	.footbar {
+	.navbar {
 		display: block;
 	}
 	.navmenu {
@@ -57,8 +50,7 @@
 	}
 
 	@media only screen and (max-width: 768px) {
-		.navbar, 
-		.footbar {
+		.navbar {
 			display: none;
 		}
 		.navmenu {

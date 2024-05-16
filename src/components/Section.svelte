@@ -10,16 +10,16 @@
 	.section {
 		overflow: hidden;
 		padding-inline: 10em;
-		padding-top: 10em;
-		height: 100%;
+		padding-top: 8em;
+		padding-bottom: 4em;
+		height: 150vh;
 	}
 
 	@media only screen and (max-width: 768px) {
 		.section {
-			height: 150%;
 			padding-inline: 2em;
-			padding-top: 3em;
-			padding-bottom: 10em;
+			padding-top: 4em;
+			padding-bottom: 4em;
 		}
 	}
 

@@ -20,7 +20,8 @@
 
 <style>
 	.navbar {
-		background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.7),rgba(0,0,0,0.4),rgba(0,0,0,0));
+		background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.7),rgba(0,0,0,0.4),rgba(0,0,0,0.1));
+		backdrop-filter: blur(2px);
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -29,9 +30,9 @@
 
 		color: white;
 
-		padding-top: 2em;
+		padding-top: 1.5em;
 		width: 100%;
-		height: 10em;
+		height: 6em;
 	}
 
 	.navbar-item {

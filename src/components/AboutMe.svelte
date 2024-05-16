@@ -6,16 +6,16 @@
 
 <div class="flex justify-between">
 	<div>
-		<SectionHeader>I'm Jack</SectionHeader>
+		<SectionHeader>Hello,<br/>I'm Jack...</SectionHeader>
 		<SectionText>
 			I'm a:
 		</SectionText>
 		<List>
 			<li>
-				Computer Science & Engineering Student at The Ohio State University
+				Computer Science & Engineering Student at <span class="text-red-600"><strong>The</strong> Ohio State University</span>
 			</li>
 			<li>
-				AI / Web Development Intern at NASA Glenn Research
+				AI / Web Dev Intern at NASA Glenn Research
 			</li>
 		</List>
 	</div>
