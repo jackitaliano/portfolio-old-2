@@ -4,7 +4,8 @@
 	import Experience from "./Experience.svelte";
 	import Projects from "./Projects.svelte";
 	import Contact from "./Contact.svelte";
-	import ProjectCards from "./ProjectCards.svelte";
+	import Carousel from "./Carousel.svelte";
+	import Card from "./Card.svelte";
 </script>
 
 <div class="content-container w-full h-full">
@@ -12,7 +13,33 @@
 		<AboutMe/>
 	</Section>
 	<Section>
-		<ProjectCards/>
+		<Carousel
+			autoScroll={{
+				duration: 5000,
+				reverse: false
+			}}
+			swipeable={{
+				mobile: true,
+				desktop: true
+			}}
+			animation={{
+				slide: true,
+				scale: true,
+				fade: true,
+			}}
+			lockDuration={500}
+			>
+			<img slot="prev" class="arrow-img" src="static/images/caret-left.svg" alt="left"/>
+			<svelte:fragment slot="content">
+				<Card>project 1</Card>
+				<Card>project 2</Card>
+				<Card>project 3</Card>
+				<Card>project 4</Card>
+				<Card>project 5</Card>
+				<Card>project 6</Card>
+			</svelte:fragment>
+			<img slot="next" class="arrow-img" src="static/images/caret-right.svg" alt="right"/>
+		</Carousel>
 	</Section>
 	<Section id="experience">
 		<Experience/>
@@ -27,6 +54,15 @@
 
 <style>
 	.content-container {
+		overflow-x: hidden;
+		-webkit-overflow-x: hidden;
 		color: white;
+	}
+
+	.arrow-img {
+		margin: auto;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
 	}
 </style>

@@ -38,12 +38,14 @@
 	.content {
 		width: 100%;
 		height: 100%;
+		margin-inline: auto;
+		max-width: 1920px;
 		z-index: 10;
 	}
 
 	.footbar,
 	.navbar {
-		z-index: 20;
+		z-index: 100;
 	}
 
 	.navbar,

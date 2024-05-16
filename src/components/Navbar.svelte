@@ -25,6 +25,8 @@
 		top: 0;
 		left: 0;
 
+		z-index: 10;
+
 		color: white;
 
 		padding-top: 2em;
