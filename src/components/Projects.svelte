@@ -14,7 +14,7 @@
 		<Carousel
 			swipeable={{
 		mobile: true,
-		desktop: true
+		desktop: false
 		}}
 		animation={{
 		slide: true,
@@ -26,7 +26,7 @@
 		<img slot="prev" class="arrow-img" src="static/images/caret-left.svg" alt="left"/>
 		<svelte:fragment slot="content">
 			{#each PROJECTS as proj}
-				<a href="{proj.url}" target="_blank" class="w-full h-full">
+				<a draggable="false" href="{proj.url}" target="_blank" class="w-full h-full">
 					<Card>
 						<div class="w-full h-full flex flex-col md:flex-row">
 							<div class="w-full md:w-1/2 h-full flex flex-col justify-between pb-2">
@@ -70,6 +70,8 @@
 <style>
 	.carousel {
 		height: 50%;
+		width: 100vw;
+		margin-left: -10em;
 	}
 
 	.arrow-img {
@@ -77,5 +79,11 @@
 		width: 25px;
 		height: 25px;
 		border-radius: 50%;
+	}
+
+	@media only screen and (max-width: 768px) {
+		.carousel {
+			margin-left: -2em;
+		}
 	}
 </style>

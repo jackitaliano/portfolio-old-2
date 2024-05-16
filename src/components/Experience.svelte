@@ -4,16 +4,42 @@
 	import Carousel from "./Carousel.svelte";
 
 	import { TESTIMONIALS } from "../configs/testimonials.js";
+	import { EXPERIENCE } from "../configs/experience";
 </script>
 
 <div>
 	<SectionHeader>
 		Experience
 	</SectionHeader>
-	<SectionText>
-		Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
-	</SectionText>
-	<div class="carousel my-auto">
+	<div class="experience">
+	<Carousel
+	 swipeable={{
+	 mobile: true,
+	 desktop: true
+	 }}
+	 animation={{
+	 slide: true,
+	 fade: true
+	 }}
+	 lockDuration={500}
+	 >
+		<img slot="prev" class="arrow-img" src="static/images/caret-left.svg" alt="left"/>
+	 <svelte:fragment slot="content">
+		 {#each EXPERIENCE as exp}
+			 <div class="flex flex-col justify-around">
+				 <div class="md:flex md:justify-between">
+					 <h2>{exp.company}</h2>
+					 <p>{exp.role}</p>
+				 </div>
+				 <p class="md:hidden">{exp.short_desc}</p>
+				 <p class="hidden md:block">{exp.long_desc}</p>
+			 </div>
+		 {/each}
+	 </svelte:fragment>
+		<img slot="next" class="arrow-img" src="static/images/caret-right.svg" alt="right"/>
+	</Carousel>
+	</div>
+	<div class="testimonial my-auto">
 		<Carousel
 			swipeable={{
 		mobile: true,
@@ -42,8 +68,27 @@
 </div>
 
 <style>
-	.carousel {
+	.experience {
+		height: 20em;
+		width: 100vw;
+		margin-left: -10em;
+	}
+
+	.testimonial {
 		height: 10em;
 		width: 100%;
+	}
+
+	.arrow-img {
+		margin: auto;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+	}
+
+	@media only screen and (max-width: 768px) {
+		.experience {
+			margin-left: -2em;
+		}
 	}
 </style>

@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import Hamburger from "./Hamburger.svelte";
+	import BackdropClose from "./BackdropClose.svelte";
 	let open = false;
 
 	let touchstartY = 0
@@ -57,6 +58,11 @@
 			navFilter.style.webkitBackdropFilter = "none";
 		}
 	}
+
+	function handleClose() {
+		open = false;
+		setMenu(open);
+	}
 </script>
 
 <div>
@@ -72,6 +78,7 @@
 		<button class="navmenu-item" tabindex="0" on:mouseup={() => handleLinkClick("projects")}>Projects</button>
 		<button class="navmenu-item" tabindex="0" on:mouseup={() => handleLinkClick("contact")}>Contact Me</button>
 	</nav>
+	<BackdropClose bind:open handleClick={handleClose}/>
 </div>
 
 <style>

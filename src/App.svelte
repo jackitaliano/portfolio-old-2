@@ -7,7 +7,7 @@
 
 <main>
 	<div class="background">
-		<BackgroundImage image="static/images/nebula.jpg" alt="Nebula"/>
+		<BackgroundImage image="https://i.imgur.com/NEst8fU.jpg" alt="Nebula"/>
 	</div>
 	<div class="navbar">
 		<Navbar/>

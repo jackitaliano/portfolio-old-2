@@ -300,7 +300,6 @@
 		max-height: 540px;
 	}
 
-	.item,
 	:global(.item){
 		position: absolute;
 		background-color: none;
@@ -308,11 +307,10 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		transition: left 0.9s, top 0.9s, opacity 0.7s, width 0.9s, height 0.9s, visibility 0.7s;
+		transition: left 0.9s, top 0.9s, opacity 0.7s, width 0.9s, height 0.9s, visibility 0.7s, font-size 0.4s;
 		margin: auto;
 	}
 
-	.curr,
 	:globabl(.item.curr) {
 		left: 0;
 		width: 100%;
@@ -321,47 +319,43 @@
 		visibility: visible;
 	}
 
-	.next-slide,
 	:global(.item.next-slide) {
 		left: 150%;
 		visibility: hidden;
 	}
 
-	.next-scale,
 	:global(.item.next-scale) {
 		width: 50%;
 		height: 50%;
+		font-size: 0.5em !important; 
 		visibility: hidden;
 	}
 
-	.next-fade,
 	:global(.item.next-fade) {
 		opacity: 0%;
 		visibility: hidden;
 	}
 
-	.prev-slide,
 	:global(.item.prev-slide) {
 		left: -150%;
 		visibility: hidden;
 	}
 
-	.prev-scale,
 	:global(.item.prev-scale) {
 		width: 50%;
 		height: 50%;
+		font-size: 0.75em !important; 
 		visibility: hidden;
 	}
 
-	.prev-fade,
 	:global(.item.prev-fade) {
 		opacity: 0%;
 		visibility: hidden;
 	}
 
 	.arrow {
-		width: 40px;
-		height: 50%;
+		width: 20%;
+		height: 75%;
 		outline: none;
 		background-color: none;
 		box-shadow: none;
@@ -377,4 +371,9 @@
 		background-color: none;
 	}
 
+	@media only screen and (max-width: 768px) {
+		.arrow {
+			width: 15%;
+		}
+	}
 </style>
