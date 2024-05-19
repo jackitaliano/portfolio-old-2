@@ -12,10 +12,10 @@
 </script>
 
 <nav class="navbar flex justify-around">
-	<button class="navbar-item" tabindex="0" on:click={(event) => handleLinkClick(event, "aboutMe")}>About Me</button>
-	<button class="navbar-item" tabindex="0" on:click={(event) => handleLinkClick(event, "experience")}>Experience</button>
-	<button class="navbar-item" tabindex="0" on:click={(event) => handleLinkClick(event, "projects")}>Projects</button>
-	<button class="navbar-item" tabindex="0" on:click={(event) => handleLinkClick(event, "contact")}>Contact Me</button>
+	<button class="navbar-item" on:click={(event) => handleLinkClick(event, "aboutMe")}>About Me</button>
+	<button class="navbar-item" on:click={(event) => handleLinkClick(event, "experience")}>Experience</button>
+	<button class="navbar-item" on:click={(event) => handleLinkClick(event, "projects")}>Projects</button>
+	<button class="navbar-item" on:click={(event) => handleLinkClick(event, "contact")}>Contact Me</button>
 </nav>
 
 <style>
@@ -31,8 +31,9 @@
 		color: white;
 
 		padding-top: 1.5em;
+		padding-bottom: 0.5em;
 		width: 100%;
-		height: 6em;
+		height: fit-content;
 	}
 
 	.navbar-item {

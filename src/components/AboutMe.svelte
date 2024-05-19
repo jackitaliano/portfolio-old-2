@@ -17,7 +17,7 @@
 				</SectionText>
 				<List>
 					<Carousel 
-			 slideable={{
+			 swipeable={{
 			 mobile: false,
 			 desktop: false
 			 }}
@@ -56,7 +56,7 @@
 				</SectionText>
 				<List>
 					<Carousel 
-			 slideable={{
+			 swipeable={{
 			 mobile: false,
 			 desktop: false
 			 }}

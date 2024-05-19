@@ -113,7 +113,6 @@
 			setTimeout(() => {
 				nextButtonElement.style.opacity = 1;
 				nextButtonElement.style.cursor = "pointer";
-				nextButtonElement.blur();
 			}, 500);
 		}
 
@@ -122,7 +121,6 @@
 			setTimeout(() => {
 				prevButtonElement.style.opacity = 1;
 				prevButtonElement.style.cursor = "pointer";
-				prevButtonElement.blur();
 			}, 500);
 		}
 	}
@@ -272,7 +270,7 @@
 
 <div class="carousel flex justify-between items-center w-full h-full">
 	{#if $$slots.prev}
-		<button bind:this={prevButtonElement} tabindex=0 class="arrow" on:click={handlePrev}>
+		<button bind:this={prevButtonElement} class="arrow" on:click={handlePrev}>
 			<slot name="prev"/>
 		</button>
 	{/if}
@@ -280,7 +278,7 @@
 		<slot name="content"/>
 	</div>
 	{#if $$slots.next}
-		<button bind:this={nextButtonElement} tabindex=0 class="arrow" on:click={handleNext}>
+		<button bind:this={nextButtonElement} class="arrow" on:click={handleNext}>
 			<slot name="next"/>
 		</button>
 	{/if}
@@ -354,6 +352,7 @@
 	}
 
 	.arrow {
+		margin: 2em;
 		width: 20%;
 		height: 75%;
 		outline: none;
@@ -364,16 +363,17 @@
 		opacity: 1;
 		transition: opacity 0.4s;
 	}
-	.arrow:focus-visible,
-	.arrow:focus,
-	.arrow:active {
-		outline: -webkit-ring-color;
-		background-color: none;
+
+	.arrow:focus-visible {
+		border-color: red !important;
+		background-color: rgba(0,0,0,0.3);
+		box-shadow: 0 0 20px rgba(255,255,255,0.5);
 	}
 
 	@media only screen and (max-width: 768px) {
 		.arrow {
 			width: 15%;
+			margin: 0;
 		}
 	}
 </style>
