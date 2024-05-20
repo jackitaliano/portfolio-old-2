@@ -1,4 +1,16 @@
 <script>
+	import { onMount } from "svelte";
+
+	let navbar;
+	let lastScrollY = 0;
+	let hideNav = false;
+
+	onMount(()=> {
+		document.addEventListener("scroll", handleScroll);
+		navbar = document.getElementById("navbar");
+		navbar.addEventListener("focusin", () => hideNav = false);
+	})
+
 	function handleLinkClick(event, id) {
 		const element = document.getElementById(id);
 
@@ -9,9 +21,24 @@
 
 		event.target.blur();
 	}
+
+	function handleScroll(e) {
+		const newScrollY = window.scrollY;
+		const diff = newScrollY - lastScrollY;
+
+		if (newScrollY < 40 || diff < -1) {
+			console.log("scroll up");
+			hideNav = false;
+		} else if (diff > 1) {
+			console.log("scroll down");
+			hideNav = true;
+		}
+
+		lastScrollY = newScrollY;
+	}
 </script>
 
-<nav class="navbar flex justify-around">
+<nav id="navbar" class="navbar flex justify-around" class:hide-nav={hideNav}>
 	<button class="navbar-item" on:click={(event) => handleLinkClick(event, "aboutMe")}>About Me</button>
 	<button class="navbar-item" on:click={(event) => handleLinkClick(event, "experience")}>Experience</button>
 	<button class="navbar-item" on:click={(event) => handleLinkClick(event, "projects")}>Projects</button>
@@ -30,6 +57,8 @@
 
 		color: white;
 
+		transition: top 0.7s ease;
+
 		padding-top: 1.5em;
 		padding-bottom: 0.5em;
 		width: 100%;
@@ -44,6 +73,10 @@
 		padding-inline: 3em;
 		border-radius: 2em;
 		transition: background-color 0.5s ease, box-shadow 0.5s ease;
+	}
+
+	.hide-nav {
+		top: -100%;
 	}
 
 	.navbar-item:focus-visible,

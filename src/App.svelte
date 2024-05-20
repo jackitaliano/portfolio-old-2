@@ -33,6 +33,7 @@
 
 	.content {
 		width: 100%;
+		margin-top: 3em;
 		margin-inline: auto;
 		max-width: 1920px;
 		z-index: 10;
@@ -55,6 +56,9 @@
 		}
 		.navmenu {
 			display: block;
+		}
+		.content {
+			margin-top: env(safe-area-inset-top);
 		}
 	}
 </style>

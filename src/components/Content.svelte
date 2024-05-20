@@ -4,9 +4,15 @@
 	import Experience from "./Experience.svelte";
 	import Projects from "./Projects.svelte";
 	import Contact from "./Contact.svelte";
+	import Landing from "./Landing.svelte";
 </script>
 
-<div class="content-container flex flex-col justify-between w-full h-full">
+<div class="content-container w-full h-full">
+	<div class="w-full h-full">
+		<Section id="landing">
+			<Landing/>
+		</Section>
+	</div>
 	<div class="w-full h-full">
 		<Section id="aboutMe">
 			<AboutMe/>
@@ -34,8 +40,5 @@
 		overflow-x: hidden;
 		-webkit-overflow-x: hidden;
 		color: white;
-	}
-
-	.light {
 	}
 </style>
