@@ -17,22 +17,30 @@
 	</div>
 	<div class="w-full h-full">
 		<Section id="aboutMe">
-			<AboutMe/>
+			<div class="w-full h-full flex justify-center md:items-center">
+				<AboutMe/>
+			</div>
 		</Section>
 	</div>
-	<div class="light w-full h-full">
+	<div class="w-full h-full ">
 		<Section id="experience">
-			<Experience/>
+			<div class="w-full h-full flex justify-center md:items-center">
+				<Experience/>
+			</div>
 		</Section>
 	</div>
 	<div class="w-full h-full">
 		<Section id="projects">
-			<Projects/>
+			<div class="w-full h-full flex justify-center md:items-center">
+				<Projects/>
+			</div>
 		</Section>
 	</div>
-	<div class="light w-full h-full">
+	<div class="w-full h-full">
 		<Section id="contact">
-			<Contact/>
+			<div class="w-full h-full flex justify-center md:items-center">
+				<Contact/>
+			</div>
 		</Section>
 	</div>
 </div>

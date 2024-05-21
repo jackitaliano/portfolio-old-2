@@ -6,6 +6,7 @@
 	import Carousel from "./Carousel.svelte";
 	import LazyImage from "./LazyImage.svelte";
 	import { IMAGES } from "../configs/images";
+    import SectionSubheader from "./SectionSubheader.svelte";
 
 	const PROF = {
 		type: "Professional",
@@ -49,7 +50,7 @@
 	const TYPES = [ PROF, PERS, PROF, PERS ]
 </script>
 
-<div class="h-full">
+<div class="w-full h-fit">
 	<SectionHeader>
 		About Me
 	</SectionHeader>
@@ -71,13 +72,13 @@
 				<Card>
 					<div class="w-full h-full flex flex-col md:flex-row gap-2">
 						<div class="w-full md:w-2/3 h-full mb-auto">
-							<SectionText>
+							<SectionSubheader>
 								{type.type}
-							</SectionText>
+							</SectionSubheader>
 							<List>
 								{#each type.info as info}
 									<li class="mb-4">
-										{info}
+										<SectionText>{info}</SectionText>
 									</li>
 								{/each}
 							</List>
@@ -117,8 +118,10 @@
 	}
 
 	.carousel {
-		height: 60%;
+		height: 50vh;
 		width: 100vw;
+		max-height: 720px;
+		max-width: 1920px;
 		margin-left: -10em;
 	}
 
