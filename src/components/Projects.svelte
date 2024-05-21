@@ -23,7 +23,7 @@
 		}}
 		lockDuration={500}
 		>
-		<img slot="prev" class="arrow-img" src="static/images/caret-left.svg" alt="left"/>
+		<img slot="prev" class="arrow-img" src="static/icons/caret-left.svg" alt="left"/>
 		<svelte:fragment slot="content">
 			{#each PROJECTS as proj}
 				<a draggable="false" href="{proj.url}" target="_blank" class="w-full h-full">
@@ -62,7 +62,7 @@
 				</a>
 			{/each}
 		</svelte:fragment>
-		<img slot="next" class="arrow-img" src="static/images/caret-right.svg" alt="right"/>
+		<img slot="next" class="arrow-img" src="static/icons/caret-right.svg" alt="right"/>
 		</Carousel>
 	</div>
 </div>

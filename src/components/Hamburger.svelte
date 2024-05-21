@@ -11,7 +11,7 @@
 </script>
 
 <button class="hamburger" on:click={handleClickHamburger}>
-	<img class="hamburger-img" class:rotated src="static/images/hamburg.svg" alt="menu button"/>
+	<img class="hamburger-img" class:rotated src="static/icons/hamburg.svg" alt="menu button"/>
 </button>
 
 <style>

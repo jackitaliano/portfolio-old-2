@@ -1,12 +1,16 @@
 <script>
+	import LazyImage from "./LazyImage.svelte";
+
 	export let image;
-	export let alt;
+
 </script>
 
 <div class="bg-img-container">
 	<div class="bg-filter">
 	</div>
-	<img class="bg-img" src={image} alt={alt}/>
+	<div class="bg-img">
+		<LazyImage url={image.url} loadingSrc={image.loading} alt={image.alt} />
+	</div>
 </div>
 
 <style>

@@ -10,7 +10,9 @@
 <div class="content-container w-full h-full">
 	<div class="w-full h-full">
 		<Section id="landing">
-			<Landing/>
+			<div class="w-full h-full flex justify-center md:items-center">
+				<Landing/>
+			</div>
 		</Section>
 	</div>
 	<div class="w-full h-full">

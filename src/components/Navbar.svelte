@@ -27,10 +27,8 @@
 		const diff = newScrollY - lastScrollY;
 
 		if (newScrollY < 40 || diff < -1) {
-			console.log("scroll up");
 			hideNav = false;
 		} else if (diff > 1) {
-			console.log("scroll down");
 			hideNav = true;
 		}
 

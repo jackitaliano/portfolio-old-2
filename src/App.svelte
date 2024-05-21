@@ -3,11 +3,14 @@
 	import Navbar from "./components/Navbar.svelte";
 	import Navmenu from "./components/Navmenu.svelte";
 	import Content from "./components/Content.svelte";
+
+	import { IMAGES } from "./configs/images";
+	const backgroundImage = IMAGES.nebula;
 </script>
 
 <main>
 	<div class="background">
-		<BackgroundImage image="https://i.imgur.com/NEst8fU.jpg" alt="Nebula"/>
+		<BackgroundImage image={backgroundImage} />
 	</div>
 	<div class="navbar">
 		<Navbar/>
@@ -33,9 +36,7 @@
 
 	.content {
 		width: 100%;
-		margin-top: 3em;
 		margin-inline: auto;
-		max-width: 1920px;
 		z-index: 10;
 	}
 

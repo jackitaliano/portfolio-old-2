@@ -2,7 +2,12 @@
 	import SectionHeader from "./SectionHeader.svelte";
 	import SectionText from "./SectionText.svelte";
 	import LinkIcon from "./LinkIcon.svelte";
-    import Icon from "./Icon.svelte";
+	import Icon from "./Icon.svelte";
+	import LazyImage from "./LazyImage.svelte";
+
+	import { IMAGES } from "../configs/images";
+
+	const headshot = IMAGES.headshot;
 </script>
 
 <div class="landing flex flex-col gap-16 md:gap-32">
@@ -26,20 +31,22 @@
 			</div>
 		</div>
 		<div class="w-full md:w-1/4 h-full shrink-0 mi-auto">
-			<img class="headshot w-40 h-40 mt-10 md:mt-0 shrink-0" src="https://i.imgur.com/OIdbLjE.png" alt="headshot" draggable="false"/>
+			<div class="headshot w-40 h-40 mt-10 md:mt-0 shrink-0 overflow-hidden">
+				<LazyImage url={headshot.url} loadingSrc={headshot.loading} alt={headshot.alt} />
+			</div>
 			<div class="w-full flex flex-wrap justify-center mt-10">
 				<LinkIcon
-					src="static/images/github.svg"
+					src="static/icons/github.svg"
 					alt="github"
 					url="https://github.com/jackitaliano"
 			 />
 			 <LinkIcon
-				 src="static/images/linkedin-in.svg"
+				 src="static/icons/linkedin-in.svg"
 				 alt="linkedin"
 				 url="https://linkedin.com/in/jackitaliano"
 			 />
 			 <LinkIcon
-				 src="static/images/resume.svg"
+				 src="static/icons/resume.svg"
 				 alt="resume"
 				 url="static/Jack Italiano - Resume.pdf"
 			 />
@@ -48,55 +55,55 @@
 	</div>
 	<div class="w-full h-fit flex flex-wrap justify-center">
 		<Icon
-			src="static/images/python.svg"
+			src="static/icons/python.svg"
 		 alt="python"
 		/>
 		<Icon
-		 src="static/images/golang.svg"
+		 src="static/icons/golang.svg"
 		 alt="GoLang"
 		/>
 		<Icon
-		 src="static/images/c-sharp.svg"
+		 src="static/icons/c-sharp.svg"
 		 alt="C-Sharp"
 		/>
 		<Icon
-		 src="static/images/java.svg"
+		 src="static/icons/java.svg"
 		 alt="Java"
 		/>
 		<Icon
-		 src="static/images/js.svg"
+		 src="static/icons/js.svg"
 		 alt="JavaScript"
 		/>
 		<Icon
-		 src="static/images/react.svg"
+		 src="static/icons/react.svg"
 		 alt="React"
 		/>
 		<Icon
-		 src="static/images/svelte.svg"
+		 src="static/icons/svelte.svg"
 		 alt="Svelte"
 		/>
 		<Icon
-		 src="static/images/aws.svg"
+		 src="static/icons/aws.svg"
 		 alt="AWS"
 		/>
 		<Icon
-		 src="static/images/gcp.svg"
+		 src="static/icons/gcp.svg"
 		 alt="GCP"
 		/>
 		<Icon
-		 src="static/images/terraform.svg"
+		 src="static/icons/terraform.svg"
 		 alt="Terraform"
 		/>
 		<Icon
-		 src="static/images/linux.svg"
+		 src="static/icons/linux.svg"
 		 alt="Linux"
 		/>
 		<Icon
-		 src="static/images/openai.svg"
+		 src="static/icons/openai.svg"
 		 alt="OpenAI"
 		/>
 		<Icon
-		 src="static/images/machine-learning.svg"
+		 src="static/icons/machine-learning.svg"
 		 alt="Machine Learning"
 		/>
 	</div>

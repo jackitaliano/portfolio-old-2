@@ -23,10 +23,8 @@
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					entry.target.classList.add('fade-in');
-					console.log("fade in")
 				} else {
 					entry.target.classList.remove('fade-in');
-					console.log("fade out")
 				}
 			});
 		}, observerOptions);
@@ -45,11 +43,13 @@
 
 <style>
 	.section {
-		padding-inline: 10%;
+		padding-inline: 10em;
 		padding-top: 8em;
 		padding-bottom: 4em;
+		margin-inline: auto;
 		height: 100vh;
 		width: 100%;
+		max-width: 1920px;
 	}
 
 	:global(.faded) {
@@ -69,4 +69,5 @@
 			padding: 2em;
 		}
 	}
+
 </style>

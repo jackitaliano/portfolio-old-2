@@ -75,7 +75,7 @@
 		<button class="navmenu-item" on:mouseup={() => handleLinkClick("experience")}>Experience</button>
 		<button class="navmenu-item" on:mouseup={() => handleLinkClick("projects")}>Projects</button>
 		<button class="navmenu-item" on:mouseup={() => handleLinkClick("contact")}>Contact Me</button>
-		<button class="close-button ml-auto" on:click={() => setMenu(false)}><img class="close-img" src="static/images/xmark.svg" alt="close" draggable="false" /></button>
+		<button class="close-button ml-auto" on:click={() => setMenu(false)}><img class="close-img" src="static/icons/xmark.svg" alt="close" draggable="false" /></button>
 	</dialog>
 </div>
 
