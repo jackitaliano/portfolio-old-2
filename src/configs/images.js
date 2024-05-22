@@ -1,87 +1,104 @@
 export const IMAGES = {
 	headshot: {
+		name: "headshot",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/headshot.jpeg",
-		loading: "static/images/headshot-min.jpeg",
-		alt: "headshot of Jack"
+		loadingSrc: "static/images/headshot-min.jpeg",
+		alt: "headshot of Jack",
 	},
 	nebula: {
+		name: "nebula",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/nebula.jpeg",
-		loading: "static/images/nebula-min.jpeg",
-		alt: "nebula photo from James Webb"
+		loadingSrc: "static/images/nebula-min.jpeg",
+		alt: "nebula photo from James Webb",
 	},
 	fountainGroup: { 
+		name: "fountainGroup",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/fountainGroup.jpeg",
-		loading: "static/images/fountainGroup-min.jpeg",
-		alt: "NASA Interns by the Fountain"
+		loadingSrc: "static/images/fountainGroup-min.jpeg",
+		alt: "NASA Interns by the Fountain",
 	},
 	sfSign: { 
+		name: "sfSign",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/sfSign.jpeg",
-		loading: "static/images/sfSign-min.jpeg",
-		alt: "Jack by the State Farm sign"
+		loadingSrc: "static/images/sfSign-min.jpeg",
+		alt: "Jack by the State Farm sign",
 	},
 	sfGroup: { 
+		name: "sfGroup",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/sfGroup.jpeg",
-		loading: "static/images/sfGroup-min.jpeg",
-		alt: "Jack by with State Farm Interns"
+		loadingSrc: "static/images/sfGroup-min.jpeg",
+		alt: "Jack by with State Farm Interns",
 	},
 	thinkAndDrinkDemo: { 
+		name: "thinkAndDrinkDemo",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/thinkAndDrinkDemo.jpeg",
-		loading: "static/images/thinkAndDrinkDemo-min.jpeg",
-		alt: "'Think and Drink' demo at History Museum"
+		loadingSrc: "static/images/thinkAndDrinkDemo-min.jpeg",
+		alt: "'Think and Drink' demo at History Museum",
 	},
 	hike: { 
+		name: "hike",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/hike.jpeg",
-		loading: "static/images/hike-min.jpeg",
-		alt: "Hike with NASA Interns"
+		loadingSrc: "static/images/hike-min.jpeg",
+		alt: "Hike with NASA Interns",
 	},
 	astronaut: { 
+		name: "astronaut",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/astronaut.jpeg",
-		loading: "static/images/astronaut-min.jpeg",
-		alt: "Jack with an astronaut"
+		loadingSrc: "static/images/astronaut-min.jpeg",
+		alt: "Jack with an astronaut",
 	},
 	engineering: { 
+		name: "engineering",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/engineering.jpeg",
-		loading: "static/images/engineering-min.jpeg",
-		alt: "Jack with engineering group"
+		loadingSrc: "static/images/engineering-min.jpeg",
+		alt: "Jack with engineering group",
 	},
 	glennFront: {
+		name: "glennFront",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/glennFront.jpeg",
-		loading: "static/images/glennFront-min.jpeg",
-		alt: "Front of NASA Glenn"
+		loadingSrc: "static/images/glennFront-min.jpeg",
+		alt: "Front of NASA Glenn",
 	},
 	hack: { 
+		name: "hack",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/hack.jpeg",
-		loading: "static/images/hack-min.jpeg",
-		alt: "Hack OH/IO Jack's Freshman year"
+		loadingSrc: "static/images/hack-min.jpeg",
+		alt: "Hack OH/IO Jack's Freshman year",
 	},
 	makeCar: { 
+		name: "makeCar",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/makeCar.jpeg",
-		loading: "static/images/makeCar-min.jpeg",
-		alt: "Jack's Make OH/IO Project car"
+		loadingSrc: "static/images/makeCar-min.jpeg",
+		alt: "Jack's Make OH/IO Project car",
 	},
 	hikingJaclyn: { 
+		name: "hikingJaclyn",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/hikingJaclyn.jpeg",
-		loading: "static/images/hikingJaclyn-min.jpeg",
-		alt: "Jack hiking with Jaclyn"
+		loadingSrc: "static/images/hikingJaclyn-min.jpeg",
+		alt: "Jack hiking with Jaclyn",
 	},
 	skiSibs: { 
+		name: "skiSibs",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/skiSibs.jpeg",
-		loading: "static/images/skiSibs-min.jpeg",
-		alt: "Jack skiing with siblings"
+		loadingSrc: "static/images/skiSibs-min.jpeg",
+		alt: "Jack skiing with siblings",
 	},
 	snowboardMe: { 
+		name: "snowboardMe",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/snowboardMe.jpeg",
-		loading: "static/images/snowboardMe-min.jpeg",
-		alt: "Jack snowboarding"
+		loadingSrc: "static/images/snowboardMe-min.jpeg",
+		alt: "Jack snowboarding",
 	},
 	pilam: { 
+		name: "pilam",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/pilam.jpeg",
-		loading: "static/images/pilam-min.jpeg",
-		alt: "Pilam House"
+		loadingSrc: "static/images/pilam-min.jpeg",
+		alt: "Pilam House",
 	},
 	buckeyes: { 
+		name: "buckeyes",
 		url: "https://raw.githubusercontent.com/jackitaliano/portfolio/main/assets/images/buckeyes.jpeg",
-		loading: "static/images/buckeyes-min.jpeg",
-		alt: "Buckeyes Football Game"
+		loadingSrc: "static/images/buckeyes-min.jpeg",
+		alt: "Buckeyes Football Game",
 	},
 }

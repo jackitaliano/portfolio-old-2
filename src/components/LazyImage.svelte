@@ -1,37 +1,24 @@
 <script>
-	export let url;
-	export let loadingSrc;
-	export let alt;
+	import { loadImage as loader } from "../utils/loader";
+	export let image;
 
 	let loaded = false;
 	let loadedSrc = null;
 
 	async function loadImage() {
-		try {
-
-			const res = await fetch(url);
-
-			if (!res.ok) {
-				return;
-			}
-
-			const blob = await res.blob();
-			loadedSrc = URL.createObjectURL(blob);
-			loaded = true;
-		} catch (e) {
-
-		}
+		loadedSrc = await loader(image.name)
+		loaded = true;
 	}
 </script>
 
 {#await loadImage() then}
 	{#if loaded}
-		<img src={loadedSrc} alt={alt} />
+		<img src={loadedSrc} alt={image.alt} />
 	{/if}
 {/await}
 {#key loaded}
 {#if !loaded}
-	<img src={loadingSrc} alt={alt} class="loading" />
+	<img src={image.loadingSrc} alt={image.alt} class="loading" />
 {/if}
 {/key}
 

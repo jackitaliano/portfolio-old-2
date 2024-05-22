@@ -92,7 +92,7 @@
 							 <svelte:fragment slot="content">
 								 {#each type.images as img}
 									 <div class="photo overflow-hidden">
-										 <LazyImage url={img.url} loadingSrc={img.loading} alt={img.alt} />
+										 <LazyImage image={img} />
 									 </div>
 								 {/each}
 							 </svelte:fragment>

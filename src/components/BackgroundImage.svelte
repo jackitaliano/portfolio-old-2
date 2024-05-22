@@ -9,7 +9,7 @@
 	<div class="bg-filter">
 	</div>
 	<div class="bg-img">
-		<LazyImage url={image.url} loadingSrc={image.loading} alt={image.alt} />
+		<LazyImage image={image}/>
 	</div>
 </div>
 

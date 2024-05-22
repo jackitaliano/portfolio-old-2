@@ -32,7 +32,7 @@
 		</div>
 		<div class="w-full md:w-1/4 h-full shrink-0 mi-auto">
 			<div class="headshot w-40 h-40 mt-10 md:mt-0 shrink-0 overflow-hidden">
-				<LazyImage url={headshot.url} loadingSrc={headshot.loading} alt={headshot.alt} />
+				<LazyImage image={headshot}/>
 			</div>
 			<div class="w-full flex flex-wrap justify-center mt-10">
 				<LinkIcon
