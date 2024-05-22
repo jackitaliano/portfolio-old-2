@@ -22,3 +22,35 @@ p {
   font-style: normal;
   font-weight: 0;
 }
+
+@font-face {
+    font-family: 'Space-Mono';
+    src: url('static/fonts/Space-Mono/spacemono-regular.woff2') format('woff2'),
+         url('static/fonts/Space-Mono/spacemono-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face { */
+/*     font-family: 'Space Mono'; */
+/*     src: url('static/fonts/Space-Mono/spacemono-bolditalic.woff2') format('woff2'), */
+/*          url('static/fonts/Space-Mono/spacemono-bolditalic.woff') format('woff'); */
+/*     font-weight: bold; */
+/*     font-style: italic; */
+/* } */
+/**/
+/* @font-face { */
+/*     font-family: 'Space Mono'; */
+/*     src: url('static/fonts/Space-Mono/spacemono-bold.woff2') format('woff2'), */
+/*          url('static/fonts/Space-Mono/spacemono-bold.woff') format('woff'); */
+/*     font-weight: bold; */
+/*     font-style: normal; */
+/* } */
+/**/
+/* @font-face { */
+/*     font-family: 'Space Mono'; */
+/*     src: url('static/fonts/Space-Mono/spacemono-italic.woff2') format('woff2'), */
+/*          url('static/fonts/Space-Mono/spacemono-italic.woff') format('woff'); */
+/*     font-weight: normal; */
+/*     font-style: italic; */
+/* } */
