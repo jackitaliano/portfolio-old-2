@@ -70,8 +70,8 @@
 		<svelte:fragment slot="content">
 			{#each TYPES as type}
 				<Card>
-					<div class="w-full h-full flex flex-col md:flex-row gap-2">
-						<div class="w-full md:w-2/3 h-full mb-auto">
+					<div class="w-full h-full flex flex-col lg:flex-row gap-2">
+						<div class="w-full lg:w-2/3 h-full mb-auto">
 							<SectionSubheader>
 								{type.type}
 							</SectionSubheader>
@@ -83,7 +83,7 @@
 								{/each}
 							</List>
 						</div>
-						<div class="photos w-full md:w-1/3 h-full overflow-hidden">
+						<div class="photos w-full lg:w-1/3 h-full overflow-hidden">
 							<Carousel
 							 swipeable={{ mobile: false, desktop: false }}
 							 animation={{ slide: true, fade: true }}
@@ -110,12 +110,12 @@
 <style>
 	.photo {
 		object-fit: contain;
+		object-position: center;
 		aspect-ratio: 1 / 1;
 	}
 
 	.photos {
 		border-radius: 0.5em;
-		height: 40vh;
 	}
 
 	.carousel {
@@ -139,4 +139,9 @@
 		}
 	}
 
+	@media only screen and (max-width: 1024px) {
+		.carousel {
+			height: 80vh;
+		}
+	}
 </style>

@@ -2,7 +2,7 @@
 
 </script>
 
-<div class="card w-full h-fit">
+<div class="card w-full h-full">
 	<slot/>
 </div>
 
