@@ -24,7 +24,7 @@ p {
 }
 
 @font-face {
-    font-family: 'Space-Mono';
+    font-family: 'Space Mono';
     src: url('static/fonts/Space-Mono/spacemono-regular.woff2') format('woff2'),
          url('static/fonts/Space-Mono/spacemono-regular.woff') format('woff');
     font-weight: normal;
