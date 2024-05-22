@@ -115,6 +115,7 @@
 
 	.photos {
 		border-radius: 0.5em;
+		height: 40vh;
 	}
 
 	.carousel {
